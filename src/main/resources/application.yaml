@@ -1,10 +1,50 @@
-# example values
-
 indexing-settings:
   sites:
-    - url: https://www.lenta.ru
-      name: Лента.ру
-    - url: https://www.skillbox.ru
-      name: Skillbox
-    - url: https://www.playback.ru
-      name: PlayBack.Ru
+      - url: https://www.lenta.ru
+        name: Лента.ру
+      - url: https://www.skillbox.ru
+        name: Skillbox
+      - url: https://www.playback.ru
+        name: PLAYBACK
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: Egik2580461!123
+    url: jdbc:mysql://localhost:3306/search_engine?useSSL=false&requireSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
+  jpa:
+    hibernate:
+      ddl-auto: update  # Установил update, чтобы данные не удалялись при перезапуске
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 200
+        hbm2ddl.import_files: indexing.sql
+      dialect: org.hibernate.dialect.MySQL8Dialect
+
+#      show_sql: true
+
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+#        jdbc:
+#          batch_size: 200
+#  #    show-sql: true
+#  h2:
+#    console:
+#      enabled: true
+
+app:
+  user-agent: "Mozilla/5.0 (Windows; U; WindowsNT s5.1; en-US; rv1.8.1.6) Gecko/20070725 Firefox/2.0.0.6"
+  referrer: "http://www.google.com"
